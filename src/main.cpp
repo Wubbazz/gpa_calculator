@@ -55,9 +55,10 @@ int main() {
             runLoop = false;
         }
 
-        float gpa = calculateGPA();
-        std::cout << "Your GPA is: " << gpa << std::endl;
     }
+    float gpa = calculateGPA();
+    std::cout << "Your GPA is: " << gpa << std::endl;
+
   
 }
 
@@ -91,7 +92,7 @@ void printClasses() {
 }
 
 float calculateGPA() {
-	float totalCredits = 1;
+	float totalCredits = 0;
 	float totalGradePoints = 0.0;
 	for (classInfo ci : classGradeList) {
 		float gradePoint = gpm[ci.letterGrade];
