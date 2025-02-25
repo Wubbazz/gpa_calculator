@@ -33,17 +33,32 @@ float calculateGPA();
 
 int main() {
 	setupMap();
-	addToGradeList("History", 3, "B+");
-	addToGradeList("History", 3, "B+");
-	addToGradeList("History", 3, "B+");
-	addToGradeList("History", 3, "B+");
-	addToGradeList("History", 3, "B+");
-	addToGradeList("History", 3, "B+");
-	addToGradeList("History", 3, "B+");
-	addToGradeList("History", 3, "B+");
-	float gpa = calculateGPA();
-	printClasses();
-	std::cout << "Your gpa is " << gpa << std::endl;
+    
+    bool runLoop = true;
+    while (runLoop) {
+        std::string className;
+        std::cout << "Please enter the name of the class: " << std::endl;    
+        std::cin >> className;
+        int credit;
+        std::cout << "Please enter the credit: " << std::endl;
+        std:: cin >> credit;
+        std::string letterGrade;
+        std::cout << "Please enter the letter grade: " << std::endl;
+        std:: cin >> letterGrade;
+        std::cout << "Are you all done? (type \"yes\" or any other key to continue)" << std::endl;
+        std::string response;
+        std::cin >> response;
+
+        addToGradeList(className, credit, letterGrade);
+
+        if (response == "yes") {
+            runLoop = false;
+        }
+
+        float gpa = calculateGPA();
+        std::cout << "Your GPA is: " << gpa << std::endl;
+    }
+  
 }
 
 void setupMap() {
@@ -86,6 +101,3 @@ float calculateGPA() {
 	float gpa = totalGradePoints/totalCredits;
 	return gpa;
 }
-
-
-
